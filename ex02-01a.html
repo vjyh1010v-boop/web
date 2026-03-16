@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input 기능</title>
+    <style>
+      /* 전체 페이지 기본 설정 */
+      body {
+        font-family:
+          "Pretendard",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #f4f7f6; /* 부드러운 배경색 */
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+        margin: 0;
+      }
+
+      /* 메인 제목 */
+      h1 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      /* 홈으로 링크 */
+      .home-link {
+        display: inline-block;
+        margin-bottom: 25px;
+        color: #3498db;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+
+      .home-link:hover {
+        color: #2980b9;
+        text-decoration: underline;
+      }
+
+      /* 폼 컨테이너 (카드 스타일) */
+      form {
+        background: #ffffff;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* 부드러운 그림자 */
+        width: 100%;
+        max-width: 400px;
+      }
+
+      /* 입력 그룹 간격 */
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      /* 라벨 텍스트 */
+      .form-group > label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 0.95em;
+        color: #2c3e50;
+      }
+
+      /* 텍스트 및 숫자 입력창 */
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #dcdde1;
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-size: 1em;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+
+      input[type="text"]:focus,
+      input[type="number"]:focus {
+        border-color: #3498db;
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        outline: none;
+      }
+
+      /* 라디오 및 체크박스 그룹 */
+      .radio-group,
+      .checkbox-group {
+        display: flex;
+        gap: 15px;
+        margin-top: 5px;
+      }
+
+      .radio-group label,
+      .checkbox-group label {
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      /* 구분선 */
+      hr {
+        border: none;
+        border-top: 1px solid #ecf0f1;
+        margin: 25px 0;
+      }
+
+      /* 버튼 그룹 */
+      .button-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 30px;
+      }
+
+      input[type="submit"],
+      input[type="reset"] {
+        flex: 1;
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition:
+          background-color 0.3s,
+          transform 0.1s;
+      }
+
+      input[type="submit"] {
+        background-color: #3498db;
+        color: white;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #2980b9;
+      }
+
+      input[type="reset"] {
+        background-color: #ecf0f1;
+        color: #7f8c8d;
+      }
+
+      input[type="reset"]:hover {
+        background-color: #bdc3c7;
+      }
+
+      /* 버튼 클릭 액션 */
+      input[type="submit"]:active,
+      input[type="reset"]:active {
+        transform: scale(0.98);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>input 기능</h1>
+    <a href="index.html" class="home-link">← 홈으로</a>
+
+    <form
+      action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe4Kx-Ko4GpCFwTVvJAPMI46Wa4y8bR6DrhuKtz4QtaLTz1fw/formResponse?"
+      method="GET"
+    >
+      <div class="form-group">
+        <label>First name</label>
+        <input
+          type="text"
+          name="entry.1714850657"
+          placeholder="이름을 입력하세요"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Last name</label>
+        <input
+          type="text"
+          name="entry.542497622"
+          placeholder="성을 입력하세요"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Age</label>
+        <input
+          type="number"
+          min="0"
+          max="20"
+          value="15"
+          step="1"
+          name="entry.1075026559"
+        />
+      </div>
+
+      <hr />
+
+      <div class="form-group">
+        <label>아침식사 메뉴는?</label>
+        <div class="checkbox-group">
+          <label>
+            <input
+              type="checkbox"
+              name="entry.1604904029"
+              value="밥을 먹는다."
+            />
+            밥
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="entry.1604904029"
+              value="빵을 먹는다."
+              checked
+            />
+            빵
+          </label>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="form-group">
+        <label>학생인가요?</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="entry.158362050" value="예" checked />
+            예
+          </label>
+          <label>
+            <input type="radio" name="entry.158362050" value="아니오" />
+            아니오
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>공부 잘하나요?</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="entry.214815591" value="잘해요" />
+            잘해요
+          </label>
+          <label>
+            <input type="radio" name="entry.214815591" value="보통요" checked />
+            보통이에요
+          </label>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <input type="reset" value="초기화" />
+        <input type="submit" value="제출하기" />
+      </div>
+    </form>
+  </body>
+</html>

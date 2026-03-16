@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>input 기능</h1>
+    <hr />
+    <a href="index.html">홈으로</a>
+    <form
+      action="https://docs.google.com/forms/u/0/d/e/98681FAIpQLSe4Kx-Ko4GpCFwTVvJAPMI46Wa4y8bR6DrhuKtz4QtaLTz1fw/formResponse?"
+      method="GET"
+    >
+      First name : <input type="text" name="entry.1714850657" /><br />
+      Last name : <input type="text" name="entry.542497622" /><br />
+      Age :
+      <input
+        type="number"
+        min="0"
+        max="20"
+        value="15"
+        step="1"
+        name="entry.1075026559"
+      />
+      <hr />
+      아침식사 밥은? :
+      <input
+        type="checkbox"
+        name="entry.1604904029"
+        value="밥을 먹는다."
+        id=""
+      />
+      아침식사 빵은? :
+      <input
+        type="checkbox"
+        name="entry.1604904029"
+        value="빵을 먹는다."
+        checked
+      />
+      <hr />
+      <!-- ({radio$:}input:radio+br)*4 -->
+      학생인가요? : <br />
+      예
+      <input type="radio" name="entry.158362050" value="예" id="" checked />
+      아니오
+      <input type="radio" name="entry.158362050" value="아니오" id="" />
+      <hr />
+      공부잘하나요? <br />
+      잘해요:
+      <input type="radio" name="entry.214815591" value="잘해요" id="" />
+      못해요 :
+      <input type="radio" name="entry.214815591" value="보통요" id="" checked />
+      <br />
+      <input type="submit" />
+      <input type="reset" />
+    </form>
+  </body>
+</html>

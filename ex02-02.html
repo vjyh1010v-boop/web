@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>input 응용</title>
+  </head>
+  <body>
+    <h1>input 응용</h1>
+    <hr />
+    <a href="index.html">홈으로</a> <br /><br />
+
+    <fieldset>
+      <legend>로그인양식</legend>
+      <form action="#">
+        <label for="input-id">아이디:</label>
+        <input
+          type="text"
+          id="input-id"
+          class="ban gym"
+          placeholder="아이디를 입력하세요"
+          title="아이디입력창"
+          value="jyh"
+          required
+        />
+        <br />
+        <label for="input-pw">비번:</label>
+        <input
+          type="password"
+          id="input-pw"
+          class="gym"
+          placeholder="비번을 입력하세요"
+          required
+        />
+        <br />
+        <input type="submit" />
+        <input type="reset" />
+      </form>
+    </fieldset>
+    <fieldset>
+      <legend>그외 양식</legend>
+      <form action="ex02-02a.html">
+        <label for="in-date">날짜:</label>
+        <input type="date" id="in-date" value="2026-03-16" />
+        <label for="in-time">시간:</label>
+        <input type="time" id="in-time" value="14:26" />
+        <label for="in-time">날짜 및 시간:</label>
+        <input type=" datetime-local" id="all-time" value="2026-03-16 14:26" />
+        <br />
+        <label for="upload">+</label>
+        <input type="file" id="upload" style="display: none" />
+        <br /><br /><br />
+        search : <input type="search" /> <br />
+        email : <input type="search" /> <br />
+        color : <input type="search" /> <br />
+        수량1 : <input type="search" /> <br />
+        수량2 : <input type="search" /> <br />
+        Range1 : <input type="search" /> <br />
+        Range2 : <input type="search" /> <br />
+
+        <input type="submit" />
+        <input type="reset" />
+      </form>
+    </fieldset>
+  </body>
+</html>
