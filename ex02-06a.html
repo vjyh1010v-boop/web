@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>웹 개발 로드맵 및 스터디 신청</title>
+    <style>
+      /* 전체 페이지 기본 설정 (지난번과 비슷한 깔끔한 스타일) */
+      body {
+        font-family: "Pretendard", sans-serif;
+        background-color: #f4f7f6;
+        color: #333;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* 메인 컨테이너 (흰색 카드 모양) */
+      .container {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 500px;
+      }
+
+      h1,
+      h2 {
+        color: #2c3e50;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid #ecf0f1;
+        margin: 20px 0;
+      }
+
+      /* === 리스트 꾸미기 === */
+      ol {
+        font-size: 1.1em;
+        font-weight: bold;
+        padding-left: 20px;
+      }
+
+      /* 리스트 안의 리스트 (중첩 리스트) */
+      ol li ul {
+        font-weight: normal; /* 하위 항목은 글씨 굵기 원래대로 */
+        margin-top: 10px;
+        margin-bottom: 20px;
+        list-style-type: circle; /* 속이 빈 동그라미 (사진의 'o' 모양) */
+      }
+
+      /* 프레임워크 안의 리스트 (a, b, c 모양) */
+      ol li ul li ol {
+        list-style-type: lower-alpha; /* a, b, c 모양 */
+        margin-top: 10px;
+        font-size: 0.95em;
+      }
+
+      /* === 폼 꾸미기 === */
+      .form-group {
+        margin-top: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        margin-top: 20px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>연습문제</h1>
+      <a href="index.html" style="color: #3498db">홈으로</a>
+      <hr />
+
+      <h2>웹 개발 로드맵</h2>
+
+      <ol>
+        <li>
+          기초
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+        </li>
+
+        <li>
+          JavaScript
+          <ul style="list-style-type: disc">
+            <li>
+              프레임워크
+              <ol>
+                <li>React</li>
+                <li>Vue</li>
+                <li>Angular</li>
+              </ol>
+            </li>
+            <li>비동기</li>
+            <li>DOM</li>
+          </ul>
+        </li>
+
+        <li>
+          서버 개발
+          <ul style="list-style-type: none; padding-left: 0">
+            <li>4. Node.js</li>
+            <li>5. Database</li>
+            <li>6. API</li>
+          </ul>
+        </li>
+      </ol>
+
+      <hr />
+
+      <h2>스터디 신청하기</h2>
+      <form action="#" method="GET">
+        <div class="form-group">
+          <label>현재 가장 배우고 싶은 과목은? (다중 선택 가능)</label>
+          <input type="checkbox" name="study" value="html_css" id="html_css" />
+          <label for="html_css" style="display: inline; font-weight: normal"
+            >HTML/CSS</label
+          ><br />
+          <input type="checkbox" name="study" value="javascript" id="js" />
+          <label for="js" style="display: inline; font-weight: normal"
+            >JavaScript (React 등)</label
+          ><br />
+          <input type="checkbox" name="study" value="server" id="server" />
+          <label for="server" style="display: inline; font-weight: normal"
+            >서버 개발</label
+          >
+        </div>
+
+        <input type="submit" value="수강 신청하기" />
+      </form>
+    </div>
+  </body>
+</html>
