@@ -6,18 +6,33 @@
     <title>Document</title>
     <style>
       table {
-        border-collapse: collapse; /* 수정예정*/
-        margin: 20px auto; /* 수정예정*/
-        width: 80%; /* 수정예정*/
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 수정예정*/
       }
       th,
       td {
         border: 2px solid black;
-        background-color: antiquewhite;
+        background-color: rgb(255, 233, 205);
         padding: 10px;
         width: 100px;
         height: 70px;
+      }
+      #row-line,
+      #col-line {
+        background-color: aqua;
+      }
+      .lines1 {
+        background-color: darkcyan;
+      }
+      .bottom-lines {
+        color: blue;
+      }
+      .lines2 {
+        color: red;
+      }
+      .lines3 {
+        background-color: yellow;
+      }
+      .lines4 {
+        color: green;
       }
     </style>
   </head>
@@ -37,25 +52,23 @@
         <th>Line 5</th>
       </tr>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="lines1">1 행 1열</td>
+        <td class="lines2">1 행 2열</td>
+        <td class="lines2">1 행 3열</td>
+        <td class="lines2 lines4">1 행 4열</td>
+        <td rowspan="2" id="row-line">1 행 5열</td>
       </tr>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="lines1">2 행 1열</td>
+        <td colspan="2" id="col-line">2 행 2열</td>
+        <td class="lines4">2 행 3열</td>
       </tr>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="lines1 bottom-lines">3 행 1열</td>
+        <td class="bottom-lines">3 행 2열</td>
+        <td class="bottom-lines lines3">3 행 3열</td>
+        <td class="bottom-lines lines3 lines4">3 행 4열</td>
+        <td class="bottom-lines lines3">3 행 5열</td>
       </tr>
     </table>
   </body>
