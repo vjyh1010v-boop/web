@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>float 응용</title>
+    <style>
+      :root {
+        --myred1: red;
+        --myred2: rgb(187, 71, 71);
+        --myred3: rgb(245, 137, 137);
+        --mygreen1: green;
+        --mygreen2: rgb(68, 161, 68);
+        --mygreen3: rgb(161, 228, 161);
+        --myblue1: blue;
+        --myblue2: rgb(43, 43, 146);
+        --myblue3: rgb(57, 57, 82);
+        --mypink1: rgb(248, 143, 161);
+        --mypink2: rgb(236, 216, 220);
+        --mypink3: rgb(243, 240, 240);
+        --myyellow1: yellow;
+        --myyellow2: rgb(233, 233, 101);
+        --myyellow3: rgb(250, 250, 161);
+      }
+      header,
+      footer {
+        width: 300px;
+        height: 40px;
+        background-color: var(--myblue2);
+        border: 5px solid(--myblue1);
+        box-sizing: border-box;
+      }
+      footer {
+        background-color: var(--mypink2);
+        border: 5px solid var(--mypink1);
+      }
+      nav {
+        width: 50px;
+        height: 250px;
+        background-color: var(--mygreen2);
+        border: 5px solid var(--mygreen1);
+        float: left;
+        box-sizing: border-box;
+        /* opacity:0.4; -- 투명 */
+      }
+      main {
+        width: 250px;
+        margin-left: 50px;
+      }
+      article {
+        height: 50px;
+        background-color: var(--myyellow2);
+        border: 5px solid var(--myyellow1);
+        box-sizing: border-box;
+      }
+      section {
+        height: 200px;
+        background-color: var(--myred2);
+        border: 5px sikud var(--myred1);
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>float 응용레이아웃</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <!-- div.box>header{header}+div>nav{nav}+main>article{article}+section{section}^^footer{footer} -->
+    <div class="box">
+      <header>
+        header
+        <div>
+          <nav>nav</nav>
+          <main>
+            <article>article</article>
+            <section>section</section>
+          </main>
+        </div>
+        <footer>footer</footer>
+      </header>
+    </div>
+  </body>
+</html>

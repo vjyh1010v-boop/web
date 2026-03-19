@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>달력</title>
+    <style>
+      :root {
+        --cwidth: 293px;
+        --cheight: 35px;
+      }
+      h2 {
+        background-color: rgb(26, 83, 136);
+        width: var(--cwidth);
+        height: var(--cheight);
+        text-align: center;
+        color: white;
+        margin-bottom: 3px;
+      }
+      .wrapper {
+        width: var(--cwidth);
+        background-color: beige;
+        height: 210px;
+        text-align: center;
+        padding: 5px;
+        box-sizing: border-box;
+      }
+      .wrapper > div {
+        width: 30px;
+        height: 30px;
+        border: 1px solid blue;
+        float: left;
+        margin: 4px;
+        font-size: 1.1rem;
+      }
+      .wrapper > div:nth-of-type(7n) {
+        color: blue;
+      }
+      .wrapper > div:nth-of-type(2),
+      .wrapper > div:nth-of-type(7n + 1) {
+        color: red;
+      }
+      .wrapper > div:nth-of-type(-n + 6) {
+        background-color: rgb(162, 248, 151);
+      }
+      .wrapper > div:nth-of-type(n + 25) {
+        background-color: rgb(207, 253, 255);
+      }
+      .wrapper > div:nth-of-type(n + 12):nth-of-type(-n + 18) {
+        background-color: rgb(251, 255, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>달력</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <!-- div.box{$}*31 -->
+    <h2>2026년 3월 달력</h2>
+    <div class="wrapper">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+      <div class="box">11</div>
+      <div class="box">12</div>
+      <div class="box">13</div>
+      <div class="box">14</div>
+      <div class="box">15</div>
+      <div class="box">16</div>
+      <div class="box">17</div>
+      <div class="box">18</div>
+      <div class="box">19</div>
+      <div class="box">20</div>
+      <div class="box">21</div>
+      <div class="box">22</div>
+      <div class="box">23</div>
+      <div class="box">24</div>
+      <div class="box">25</div>
+      <div class="box">26</div>
+      <div class="box">27</div>
+      <div class="box">28</div>
+      <div class="box">29</div>
+      <div class="box">30</div>
+      <div class="box">31</div>
+    </div>
+  </body>
+</html>
