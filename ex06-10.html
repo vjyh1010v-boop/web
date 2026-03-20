@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>keyframes</title>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: cornflowerblue;
+        animation: mymove 2s ease infinite;
+      }
+      @keyframes mymove {
+        /* from {
+          transform: translate(0);
+        }
+        to {
+          transform: translate(500px, 500px);
+        } */
+        0% {
+          transform: translate(0, 0);
+        } /* 시작 (왼쪽 위) */
+        25% {
+          transform: translate(500px, 0);
+        } /* 오른쪽으로 이동 */
+        50% {
+          transform: translate(500px, 500px);
+        } /* 아래로 이동 */
+        75% {
+          transform: translate(0, 500px);
+        } /* 왼쪽으로 이동 */
+        100% {
+          transform: translate(0, 0);
+        } /* 위로(처음 위치) 이동 */
+      }
+      /* @import url(); */
+    </style>
+  </head>
+  <body>
+    <h1>keyframes</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <div></div>
+  </body>
+</html>

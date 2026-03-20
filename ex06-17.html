@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로필</title>
+    <style>
+      body {
+        height: 100vh;
+        background-color: rgb(248, 222, 248);
+        padding-top: 8rem;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+      }
+
+      .card {
+        background-color: white;
+        max-width: 360px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 30px;
+        overflow: hidden;
+      }
+
+      .banner {
+        background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20210310/pngtree-memphis-style-pattern-background-image_578602.jpg);
+        height: 140px;
+        display: flex;
+      }
+
+      .profile {
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYOzVVEKUH9c1xD2dmtWpc6TEYD7BSyAz8eQ&s);
+        background-size: 130px;
+        background-position: 0;
+        border-radius: 50%;
+        width: 130px;
+        height: 130px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>프로필</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <!-- div.card>div.banner>div.profile-부모-^h2.name{yoonhee}+div.follow-btn{follow}+div.desc{내용들...} -->
+    <div class="card">
+      <div class="banner">
+        <div class="profile"></div>
+      </div>
+      <h2 class="name">yoonhee</h2>
+      <div class="follow-btn">follow</div>
+      <div class="desc">
+        열심히 수업받는 여러분 정말 고생이 많습니다. 항상 노력하여 최고의
+        프로그래머가 되도록 합시다.
+      </div>
+    </div>
+  </body>
+</html>

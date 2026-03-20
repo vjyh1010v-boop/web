@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>word-wrap</title>
+    <style>
+      div {
+        border: 5px solid coral;
+        width: 300px;
+
+        /* 줄바꿈 여부, 영어위주로, 긴단어 (기본은 word-wrap: normal;) */
+        /* word-wrap: normal; */
+        word-wrap: break-word;
+
+        /* 아시아권 + 영어, 단어로 자름 */
+        /* word-wrap: keep-all; */
+        /* word-break: keep-all; */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>word-wrap(워드랩)</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <div>
+      ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ
+      밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자
+      밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자
+      밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자
+      밥먹자 밥먹자 밥먹자 밥먹자 밥먹자 밥먹자
+      https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EC%95%84%EC%9D%B4%EB%B8%8C&ackey=lmel1vpl
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia vitae
+      officia obcaecati numquam minima id magni laboriosam, architecto quae
+      ipsam quisquam consectetur eaque rerum tempora maxime nobis excepturi rem
+      laudantium a dolorum. Voluptatibus expedita culpa eveniet soluta! Vero
+      deserunt cupiditate, facere laboriosam alias repudiandae, ut suscipit
+      iusto ipsa nam at.
+      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      12341234123412341234123412341234123412341234123412341234123412341234123412341234
+    </div>
+  </body>
+</html>

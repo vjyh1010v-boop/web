@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex box로 레이아웃 구성하기</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      #container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      header {
+        background-color: #6a9e9e;
+        height: 100px;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        font-family: Arial, sans-serif;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: black;
+      }
+
+      nav {
+        background-color: #ffd700;
+        height: 40px;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      main {
+        display: flex;
+        flex: 1;
+      }
+
+      aside {
+        flex: 0 0 200px;
+        background-color: #f5e6d3;
+      }
+
+      article {
+        flex: 1;
+        background-color: #e6bc92;
+      }
+
+      section {
+        flex: 0 0 200px;
+        background-color: #f5e6d3;
+      }
+      footer {
+        background-color: #6a9e9e;
+        height: 80px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Never</h1>
+    <hr />
+    <div id="container">
+      <header>Never</header>
+      <nav>nav</nav>
+
+      <main>
+        <aside>aside</aside>
+        <article>article</article>
+        <section>section</section>
+      </main>
+
+      <footer>정보처리방침 정책고객센터 Never corp.</footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공튀기기</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: cornflowerblue;
+        border-radius: 50%;
+        animation: mymove 2s ease infinite alternate;
+      }
+      @keyframes mymove {
+        from {
+          transform: translateY(0px) scale(1);
+        }
+        to {
+          transform: translateY(400px) scale(1.05, 0.8);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>keyframes</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <div></div>
+  </body>
+</html>
