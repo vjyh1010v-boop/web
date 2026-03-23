@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>채팅창</title>
+    <style>
+      .box {
+        height: 100vh;
+        padding: 2rem;
+        background-color: aliceblue;
+        box-sizing: border-box;
+      }
+      .chat-container {
+        background-color: white;
+        width: 500px;
+        height: 500px;
+        margin: auto;
+        padding: 1rem 3rem 0 3rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        transform: translateY(50%);
+        border-radius: 20px;
+        overflow-y: auto;
+      }
+      .message {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 1.2rem;
+      }
+      .message.bot {
+        justify-content: flex-start;
+      }
+      .message.user {
+        justify-content: flex-end;
+      }
+
+      .name {
+        font-size: 0.8rem;
+        color: #555;
+        margin: 0 10px 2px;
+      }
+      .bubble {
+        max-width: 300px;
+        /* position: relative; */
+        background-color: rgb(212, 212, 211);
+        padding: 0.7rem 2rem;
+        border-radius: 20px;
+        word-break: break-word;
+      }
+      .user .bubble {
+        background-color: rgb(255, 255, 122);
+      }
+      .user .name {
+        text-align: right;
+      }
+
+      .chat-container::-webkit-scrollbar {
+        background-color: rgb(240, 246, 255);
+        border-radius: 0 6px 6px 0;
+        width: 30px;
+      }
+      .chat-container::-webkit-scrollbar-thumb {
+        background-color: rgb(89, 156, 233);
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .chat-container::-webkit-scrollbar-thumb:active {
+        background-color: rgb(105, 231, 240);
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>채팅창</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <!-- div.chat-container>div.message.bot>div>div.name{myBot}+div.bubble{안녕하세요. 무엇을 도와드릴까요?}^^div.message.user>div>div.name{나}+div.bubble{Flex로 채팅화면을 만들수 있나?} -->
+
+    <div class="box">
+      <div class="chat-container">
+        <div class="message bot">
+          <div>
+            <div class="name">myBot</div>
+            <div class="bubble">
+              안녕하세요! 무엇을 도와드릴까요? 궁금한 점이 있으시면 언제든
+              물어보세요. 😊
+            </div>
+          </div>
+        </div>
+
+        <div class="message user">
+          <div>
+            <div class="name">나</div>
+            <div class="bubble">
+              Flexbox를 사용해서 지금 보고 있는 것 같은 채팅 화면을 만들 수
+              있나요?
+            </div>
+          </div>
+        </div>
+
+        <div class="message bot">
+          <div>
+            <div class="name">myBot</div>
+            <div class="bubble">
+              네, 당연하죠! Flexbox는 채팅 레이아웃에 최적화되어 있습니다. 수직
+              정렬은 `flex-direction: column`을 사용하면 됩니다.
+            </div>
+          </div>
+        </div>
+
+        <div class="message user">
+          <div>
+            <div class="name">나</div>
+            <div class="bubble">
+              사용자 메시지만 오른쪽으로 붙이려면 어떻게 설정하는 게 가장
+              깔끔할까요?
+            </div>
+          </div>
+        </div>
+
+        <div class="message bot">
+          <div>
+            <div class="name">myBot</div>
+            <div class="bubble">
+              사용자 메시지 부모 요소에 `justify-content: flex-end`를 주거나,
+              말풍선 자체에 `align-self: flex-end`를 적용해 보세요!
+            </div>
+          </div>
+        </div>
+
+        <div class="message user">
+          <div>
+            <div class="name">나</div>
+            <div class="bubble">
+              아하! 덕분에 훨씬 감이 잡히네요. 바로 코드를 수정해 봐야겠어요.
+              감사합니다!
+            </div>
+          </div>
+        </div>
+
+        <div class="message bot">
+          <div>
+            <div class="name">myBot</div>
+            <div class="bubble">
+              천만에요! 구현하다가 막히는 부분이 생기면 언제든 다시 말씀해
+              주세요. 화이팅입니다! 🚀
+            </div>
+          </div>
+        </div>
+
+        <div class="message user">
+          <div>
+            <div class="name">나</div>
+            <div class="bubble">네! 좋은 하루 되세요!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script></script>
+  </body>
+</html>
