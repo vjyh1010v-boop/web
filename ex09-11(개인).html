@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이템 뽑기 시뮬레이터</title>
+    <style>
+      h2 {
+        text-align: center;
+      }
+      #box {
+        background-color: rgb(235, 216, 191);
+        width: 400px;
+        height: 350px; /* 항목이 늘어났으니 높이를 조금 키웠습니다 */
+        margin: 5% auto;
+        padding: 40px 10px 40px 30px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        box-shadow: 10px 10px 20px rgba(50, 50, 50, 0.562);
+      }
+      /* 공통 막대그래프 디자인 */
+      #box > div {
+        height: 30px;
+        margin: 5px;
+        box-shadow: 10px 10px 20px rgba(50, 50, 50, 0.562);
+        border-radius: 0 15px 15px 0;
+        /* position: relative; 글자를 막대 끝에 맞추기 위해 추가 */
+      }
+      table {
+        width: 400px;
+        margin: auto;
+      }
+      tr,
+      th,
+      td {
+        background-color: rgb(14, 104, 107);
+        color: white;
+        box-shadow: 5px 5px 10px rgba(50, 50, 50, 0.3);
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+      }
+      span {
+        position: absolute;
+        color: white;
+        font-weight: bold;
+        display: block;
+        text-align: right;
+        line-height: 1.5rem; /* 막대 높이와 맞춰서 세로 중앙 정렬 */
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const epoch = 100000;
+      let turn = 0;
+      // 1. 바구니를 5개로 늘립니다 (전설, 유니크, 레어, 매직, 일반)
+      const arr = [0, 0, 0, 0, 0];
+      let verf = "검증중;";
+
+      while (turn < epoch) {
+        const ran = Math.floor(Math.random() * 100); // 0 ~ 99
+        let list = "";
+
+        // 2. 확률 조정 (합이 100%가 되도록 설정)
+        // 전설: 1%, 유니크: 2%, 레어: 10%, 매직: 30%, 일반: 57%
+        if (ran < 1) {
+          arr[0]++; // 0 (1개 = 1%) -> 전설
+        } else if (ran < 3) {
+          arr[1]++; // 1, 2 (2개 = 2%) -> 유니크
+        } else if (ran < 13) {
+          arr[2]++; // 3 ~ 12 (10개 = 10%) -> 레어
+        } else if (ran < 43) {
+          arr[3]++; // 13 ~ 42 (30개 = 30%) -> 매직
+        } else {
+          arr[4]++; // 43 ~ 99 (57개 = 57%) -> 일반
+        }
+        turn++;
+      }
+
+      /* 3. 검증 프로그램에 arr[4] 추가 */
+      if (epoch == arr[0] + arr[1] + arr[2] + arr[3] + arr[4]) {
+        verf = "검증완료";
+      } else {
+        verf = "검증이상";
+        alert("검증이상");
+      }
+
+      // 4. 전설 등급 퍼센트 계산 추가
+      const arr0 = ((arr[0] / epoch) * 100).toFixed(1);
+      const arr1 = ((arr[1] / epoch) * 100).toFixed(1);
+      const arr2 = ((arr[2] / epoch) * 100).toFixed(1);
+      const arr3 = ((arr[3] / epoch) * 100).toFixed(1);
+      const arr4 = ((arr[4] / epoch) * 100).toFixed(1);
+
+      // 5. 표에 전설 등급 행 추가
+      list = `<h2>${epoch}회 (${verf})</h2><table>
+        <tr>
+          <th>아이템</th>
+          <th>기본확률</th>
+          <th>개수</th>
+          <th>통계</th>
+        </tr>
+        <tr>
+          <td style="color: #FFD700;">전설</td>
+          <td>1%</td>
+          <td>${arr[0]}</td>
+          <td>${arr0}%</td>
+        </tr>
+        <tr>
+          <td style="color: #FF8C00;">유니크</td>
+          <td>2%</td>
+          <td>${arr[1]}</td>
+          <td>${arr1}%</td>
+        </tr>
+        <tr>
+          <td style="color: #DDA0DD;">레어</td>
+          <td>10%</td>
+          <td>${arr[2]}</td>
+          <td>${arr2}%</td>
+        </tr>
+        <tr>
+          <td style="color: #87CEFA;">매직</td>
+          <td>30%</td>
+          <td>${arr[3]}</td>
+          <td>${arr3}%</td>
+        </tr>
+        <tr>
+          <td style="color: #D3D3D3;">일반</td>
+          <td>57%</td>
+          <td>${arr[4]}</td>
+          <td>${arr4}%</td>
+        </tr>
+      </table>`;
+
+      // 6. 막대그래프에 각각 다른 배경색(background-color) 지정
+      list += `<div id="box">
+          <div style="width: ${arr0 * 3}%; background-color: #FFD700;"><span>전설 (${arr0}%)</span></div>
+          <div style="width: ${arr1 * 3}%; background-color: #FF8C00;"><span>유니크 (${arr1}%)</span></div>
+          <div style="width: ${arr2 * 2}%; background-color: #9370DB;"><span>레어 (${arr2}%)</span></div>
+          <div style="width: ${arr3 * 1.5}%; background-color: #4682B4;"><span>매직 (${arr3}%)</span></div>
+          <div style="width: ${arr4 * 1.5}%; background-color: #808080;"><span>일반 (${arr4}%)</span></div>
+          <button onclick="location.reload(true)" style="margin-top: 10px; padding: 5px;">새로고침</button>
+        </div>`;
+
+      document.body.innerHTML = list;
+    </script>
+  </body>
+</html>

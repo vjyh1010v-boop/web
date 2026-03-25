@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      let list = `<h1>과일목록관리</h1>`;
+
+      const box = ["딸기", "바나나", "사과", "수박", "키위", "포도"];
+      //1. {box} 중에 제거하고 싶은 품목을 입력하세요.
+      //단, 없으면 없다고 알려주기
+
+      const inp1 = prompt(`${box} 중 제거하고 싶은 품목을 입력하세요.`);
+      const choice1 = box.indexOf(inp1);
+      if (choice1 == -1) {
+        alert(`${inp1} 은(는) 품목에 없는 요소입니다.`);
+      } else {
+        box.splice(choice1, 1);
+        alert(`${inp1} 을(를) 제거했습니다.`);
+        console.log(box);
+      }
+
+      // 2. {box} 외에 추가하고 싶은 품목을 입력하세요.
+      // 단, 있으면 있다고 알려주기
+      const inp2 = prompt(`${box} 외에 추가하고 싶은 품목을 입력하세요.`);
+      const choice2 = box.indexOf(inp2);
+
+      if (choice2 == -1) {
+        box.splice(box.length, 0, inp2);
+        alert(`${inp2} 을(를) 추가했습니다.`);
+        console.log(box);
+      } else {
+        alert(`${inp2} 은(는) 이미 있습니다.`);
+      }
+
+      // 3. 정리된 품목은 {box} 입니다.
+      list += `<h3>정리된 품목은 ${box} 입니다</h3>`;
+
+      document.body.innerHTML = list;
+    </script>
+  </body>
+</html>

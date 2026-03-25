@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>주사위 10만 번 시뮬레이션</title>
+    <style>
+      /* 전체적인 폰트와 배경 설정 */
+      body {
+        font-family: "Malgun Gothic", sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+      h2 {
+        text-align: center;
+        color: #2c3e50;
+        margin-top: 30px;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* 표(Table) 디자인 */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: white;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+      }
+      th {
+        background-color: #34495e;
+        color: white;
+        font-weight: bold;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      /* 막대그래프 배경 박스 */
+      #chart-box {
+        background-color: #ecf0f1;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      /* 개별 막대그래프 뼈대 */
+      .bar-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .bar-label {
+        width: 60px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      /* 막대가 차오르는 배경 길 */
+      .bar-track {
+        flex-grow: 1;
+        background-color: #bdc3c7;
+        height: 26px;
+        border-radius: 13px;
+        overflow: hidden;
+      }
+
+      /* 실제 색상이 채워지는 부분 */
+      .bar-fill {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 10px;
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        box-sizing: border-box;
+      }
+
+      /* 주사위 눈금마다 다른 색상 부여 */
+      .bar-fill.c1 {
+        background-color: #e74c3c;
+      } /* 빨강 */
+      .bar-fill.c2 {
+        background-color: #e67e22;
+      } /* 주황 */
+      .bar-fill.c3 {
+        background-color: #f1c40f;
+        color: #333;
+      } /* 노랑 (글씨 어둡게) */
+      .bar-fill.c4 {
+        background-color: #2ecc71;
+      } /* 초록 */
+      .bar-fill.c5 {
+        background-color: #3498db;
+      } /* 파랑 */
+      .bar-fill.c6 {
+        background-color: #9b59b6;
+      } /* 보라 */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>🎲 주사위 100,000회 시뮬레이션</h2>
+      <div id="result-table"></div>
+      <h3>확률 분포 (목표: 약 16.67%)</h3>
+      <div id="chart-box"></div>
+    </div>
+
+    <script>
+      // 1. 기본 설정 (횟수와 배열 준비)
+      const totalRolls = 100000;
+      const counts = [0, 0, 0, 0, 0, 0]; // 인덱스 0~5는 주사위 눈 1~6을 기록할 공간
+      const expectedCount = totalRolls / 6; // 수학적으로 기대되는 각 눈금의 횟수 (약 16,666.67회)
+
+      // 2. 10만 번 주사위 던지기 로직
+      for (let i = 0; i < totalRolls; i++) {
+        // Math.random()은 0.0 이상 1.0 미만의 소수를 만듭니다.
+        // 곱하기 6을 하면 0.0 이상 5.999... 미만의 수가 됩니다.
+        // Math.floor()로 소수점을 버리면 0, 1, 2, 3, 4, 5 중 하나가 정수로 나옵니다.
+        const roll = Math.floor(Math.random() * 6);
+
+        // 나온 정수를 인덱스로 삼아 해당 자리의 카운트를 1 올립니다.
+        counts[roll]++;
+      }
+
+      // 3. 화면에 그릴 HTML 문자열 뼈대 만들기
+      let tableHTML = `
+      <table>
+        <tr>
+          <th>주사위 눈</th>
+          <th>나온 횟수</th>
+          <th>실제 확률</th>
+          <th>이론과의 오차율</th>
+        </tr>
+    `;
+      let chartHTML = "";
+
+      // 4. 결과 데이터를 순회하며 HTML에 값 채워넣기
+      for (let i = 0; i < 6; i++) {
+        const diceFace = i + 1; // 배열 인덱스 0은 실제 주사위 눈 1을 의미
+        const actualCount = counts[i];
+        const actualProb = (actualCount / totalRolls) * 100; // 나온 횟수를 퍼센트로 변환
+
+        // 오차율 계산 절대값(|실제 - 이론|) / 이론 * 100
+        const errorRate =
+          (Math.abs(actualCount - expectedCount) / expectedCount) * 100;
+
+        // 표(Table)에 한 줄씩 데이터 추가
+        tableHTML += `
+        <tr>
+          <td>${diceFace}</td>
+          <td>${actualCount.toLocaleString()}회</td>
+          <td>${actualProb.toFixed(2)}%</td>
+          <td>${errorRate.toFixed(2)}%</td>
+        </tr>
+      `;
+
+        // 그래프의 막대 길이를 정합니다.
+        // 모두 16.6% 내외라서 100% 기준으로 하면 막대가 너무 짧아 차이가 안 보입니다.
+        // 그래서 길이를 5배(actualProb * 5)로 뻥튀기하여 화면에 시원하게 꽉 차게 보여줍니다.
+        const barWidth = actualProb * 1.5;
+
+        // 막대그래프 HTML 추가
+        chartHTML += `
+        <div class="bar-container">
+          <div class="bar-label">눈 ${diceFace}</div>
+          <div class="bar-track">
+            <div class="bar-fill c${diceFace}" style="width: ${barWidth}%">
+              ${actualProb.toFixed(2)}%
+            </div>
+          </div>
+        </div>
+      `;
+      }
+
+      tableHTML += `</table>`;
+
+      // 5. 완성된 HTML 문자열을 브라우저의 지정된 div 안에 삽입하여 화면에 출력
+      document.getElementById("result-table").innerHTML = tableHTML;
+      document.getElementById("chart-box").innerHTML = chartHTML;
+    </script>
+  </body>
+</html>
