@@ -11,24 +11,33 @@
       console.log(str[0]);
       console.log(str[1]);
       console.log(str[2]);
-      // 배열선언 1
+      // 배열선언1
       const arr0 = new Array(5);
-      console.log(arr0);
-      // 배열선언 2
+      console.log(arr0, arr0.length);
+      // 배열선언2
       const arr1 = [];
-      arr1[4] = underdefined;
+      arr1[4] = undefined;
       arr1[100] = 1;
       console.log(arr1, arr1.length);
-      // 배열선언 3
-      const arr2 = [135, "777", true, function () {}, {}, [1, 2, 3]];
+      // 배열선언3
+      const arr2 = [
+        135,
+        "777",
+        true,
+        null,
+        undefined,
+        function () {},
+        {},
+        [1, 2, 3],
+      ];
       console.log(arr2, arr2.length);
-      console.log("---------------");
+      console.log("----------------");
       // 배열초기화1
-      const arr00 = [1, 2, 3, 4, 5];
+      let arr00 = [1, 2, 3, 4, 5];
       console.log(arr00);
       arr00 = [];
       console.log(arr00);
-      //배열초기화 2
+      // 배열초기화2
       const arr01 = [11, 22, 33, 44, 55];
       console.log(arr01);
       arr01.length = 0;
