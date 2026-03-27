@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      h2 {
+        background-color: yellow;
+        color: #ce5151;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>forEach 실습</h1>
+    <h2></h2>
+    <h2></h2>
+    <h2></h2>
+    <h2></h2>
+    <h2></h2>
+    <script>
+      const headers = document.querySelectorAll("h2");
+      const color = ["#ce5151", "#ce4160", "#ce6051", "#ce5231", "#ce6251"];
+      headers.forEach((header, idx) => {
+        header.textContent = "header";
+        header.style.color = color[idx];
+        header.style.backgroundColor = `rgb(${idx * 50},${idx * 20},${idx * 10})`; // = background-color = -c = C
+        header.style.padding = "10px";
+        header.style.fontSize = "2rem";
+      });
+      // console.log(headers);
+    </script>
+  </body>
+</html>
