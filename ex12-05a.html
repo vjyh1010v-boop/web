@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      h1 {
+        margin: 0;
+        border-radius: 50;
+        font-size: 3rem;
+        position: absolute;
+        padding: 20px 30px 30px;
+        user-select: none;
+
+        /* 핵심 : GPU 가속 */
+        will-change: transform;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. 요소 생성
+        const star = document.createElement("h1");
+        star.textContent = "⭐";
+        document.body.appendChild(star);
+
+        // 2. 상태 관리 (실무 스타일)
+        const state = {
+        x = 0,
+        y = 0,
+        step = 40,
+        };
+
+        // 3. 랜더 함수 (UI 업데이트 분리)
+        const render = () => {`translate(${state.x * state.step} px,
+          ${state.y * state.step
+          }px)`;
+        };
+
+        // 4. 키 입력 처리 (확장 가능한 구조)
+
+          if (event.key === "ArrowRight") x++;
+          if (event.key === "ArrowLeft") x--;
+          if (event.key === "ArrowUp") y--;
+          if (event.key === "ArrowDown") y++;
+        });
+
+        // 5. 이벤트 처리
+                window.addEventListener("keydown", (event) => {
+          //   console.log(event.key);
+      });
+    </script>
+  </body>
+</html>

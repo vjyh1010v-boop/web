@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let ct = 0;
+        const h1 = document.createElement("h1");
+        document.body.append(h1); // h1 여러개 넣을 수 있는거
+        h1.textContent = `클릭횟수 : 0`;
+        h1.style.userSelect = "none"; // 마우스 선택 방지
+        h1.addEventListener("contextmenu", (e) => {
+          e.preventDefault(); // 우클릭 방지
+        });
+        h1.addEventListener("click", () => {
+          h1.textContent = `클릭횟수 : ${++ct}`;
+        });
+      });
+    </script>
+  </body>
+</html>
