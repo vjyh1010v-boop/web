@@ -1,3 +1,97 @@
+# [React] DOM 기반 라우팅(Routing) 
+> **라우팅 학습 목표**: 전통적인 웹처럼 페이지 이동 시 브라우저가 새로고침되는 현상을 차단하고, 자바스크립트를 이용해 필요한 영역의 컴포넌트만 실시간으로 교체하는 **SPA(Single Page Application) 라우팅 흐름**을 구성합니다.
+
+---
+
+## 📂 [main.jsx] 라우터 전역 활성화 (Provider 설정)
+> **수업 방향**: 애플리케이션의 최상단 루트 파일에서 리액트 라우터의 브라우저 히스토리 API 기능을 온전히 쓸 수 있도록 **컨텍스트(BrowserRouter)를 주입**합니다.
+
+
+<img width="761" height="350" alt="image" src="https://github.com/user-attachments/assets/1a2b2256-b5db-4625-9e6a-f5ee12b29bda" />
+
+
+
+```javascript
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom"; // 💡 핵심 모듈 임포트
+
+import "./index.css";
+import App from "./App.jsx";
+
+createRoot(document.getElementById("root")).render(
+  // 💡 애플리케이션 전역에 라우팅 컨텍스트를 제공합니다.
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+
+- 기본 설치가 안되어있으니 설치하기
+
+> 설치
+```sh
+npm i react-router-dom
+```
+
+```jsx
+/* main.jsx */
+
+// import { StrictMode } from 'react'
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+
+import "./index.css";
+import App from "./App.jsx";
+
+createRoot(document.getElementById("root")).render(
+  // <StrictMode>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  // </StrictMode>,
+);
+
+```
+
+```jsx
+/* App.jsx */
+
+import { Link, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
+import Ex01 from "./pages/Ex01";
+import Ex02 from "./pages/Ex02";
+
+function App() {
+  return (
+    <>
+      <Link to="/">Home</Link> | <Link to="/ex01">예제1</Link> |{" "}
+      <Link to="/ex02">예제2</Link>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/ex01" element={<Ex01 />}></Route>
+        <Route path="/ex02" element={<Ex02 />}></Route>
+      </Routes>
+    </>
+  );
+}
+
+export default App;
+
+```
+
+> `index.css`에 넣기
+```css
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+```
+
+---
 
 # [React] 실습코드 1 (Ex01 ~ Ex07)
 > **학습 목표 흐름**: 브라우저 로컬 스토리지 제어(Ex01 ~ 03) ➡️ 인풋 데이터를 다루는 가변 연산 실습(Ex04) ➡️ 셀렉터, 라디오, 체크박스 등 핵심 HTML 입력 폼 요소의 리액트 상태 동기화 기법 완벽 정복(Ex05~07).
