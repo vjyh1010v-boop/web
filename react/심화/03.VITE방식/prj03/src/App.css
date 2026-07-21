@@ -1,0 +1,22 @@
+.box {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  min-height: 150px;
+}
+
+.card h2 {
+  text-align: center;
+  color: cadetblue;
+}
+
+h1 {
+  text-align: center;
+}

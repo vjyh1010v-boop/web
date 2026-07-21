@@ -1,0 +1,433 @@
+.appContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1e293b;
+}
+
+.introHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+
+.introHeader h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0.5rem 0;
+  letter-spacing: -0.025em;
+}
+
+.introHeader p {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* 대시보드 레이아웃 */
+.dashboardLayout {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 네비게이션바 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.navbar.light {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.navbar.dark {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.userBadge {
+  background: rgba(99, 102, 241, 0.15);
+  color: #6366f1;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 6px;
+}
+
+.navbar.dark .userBadge {
+  background: rgba(129, 140, 248, 0.2);
+  color: #818cf8;
+}
+
+/* 대시보드 바디 */
+.dashboardBody {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 480px;
+}
+
+@media (max-width: 768px) {
+  .dashboardBody {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 사이드바 */
+.sidebar {
+  padding: 2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.sidebar.light {
+  background-color: #f8fafc;
+  color: #475569;
+}
+
+.sidebar.dark {
+  background-color: #0f172a;
+  color: #94a3b8;
+  border-right-color: rgba(255, 255, 255, 0.08);
+}
+
+.menuItem {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.menuItem:hover {
+  background-color: rgba(99, 102, 241, 0.08);
+  color: #6366f1;
+}
+
+.sidebar.dark .menuItem:hover {
+  background-color: rgba(129, 140, 248, 0.1);
+  color: #818cf8;
+}
+
+.themeToggleBtn {
+  margin-top: auto;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  border: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.8rem;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+  transition: all 0.2s ease;
+}
+
+.themeToggleBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+}
+
+/* 메인 콘텐츠 영역 */
+.content {
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  transition: all 0.3s ease;
+}
+
+.content.light {
+  background-color: #ffffff;
+  color: #334155;
+}
+
+.content.dark {
+  background-color: #0b0f19;
+  color: #cbd5e1;
+}
+
+.contentHeader h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.content.light .contentHeader h2 {
+  color: #0f172a;
+}
+
+.content.dark .contentHeader h2 {
+  color: #f8fafc;
+}
+
+.contentHeader p {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.content.dark .contentHeader p {
+  color: #94a3b8;
+}
+
+/* 대시보드 카드들 */
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboardCard {
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+
+.content.light .dashboardCard {
+  background-color: #f8fafc;
+}
+
+.content.dark .dashboardCard {
+  background-color: #1e293b;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.dashboardCard h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.content.light .dashboardCard h3 {
+  color: #0f172a;
+}
+
+.content.dark .dashboardCard h3 {
+  color: #f8fafc;
+}
+
+.themeName {
+  background: #f43f5e;
+  color: white;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.themePreview {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.content.dark .themePreview {
+  color: #94a3b8;
+}
+
+.themeIndicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+}
+
+/* 입력그룹 */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.inputGroup label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.nameInput {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  outline: none;
+  background: white;
+  color: #0f172a;
+  transition: all 0.2s ease;
+}
+
+.nameInput:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.15);
+}
+
+.content.dark .nameInput {
+  background-color: #0f172a;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.content.dark .nameInput:focus {
+  border-color: #c084fc;
+}
+
+/* 차트 섹션 */
+.chartSection {
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+
+.content.light .chartSection {
+  background-color: #f8fafc;
+}
+
+.content.dark .chartSection {
+  background-color: #1e293b;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.chartSection h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.content.light .chartSection h3 {
+  color: #0f172a;
+}
+
+.content.dark .chartSection h3 {
+  color: #f8fafc;
+}
+
+.barChart {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  height: 180px;
+  border-bottom: 2px solid #cbd5e1;
+  padding-bottom: 0.5rem;
+}
+
+.content.dark .barChart {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.chartCol {
+  flex-grow: 1;
+  background: linear-gradient(to top, #7c3aed, #a855f7);
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0.75rem;
+  position: relative;
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+}
+
+.chartCol:nth-child(2) {
+  background: linear-gradient(to top, #4f46e5, #6366f1);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.chartCol:nth-child(3) {
+  background: linear-gradient(to top, #059669, #10b981);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.barLabel {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+
+.educationalInfo {
+  margin-top: 3.5rem;
+  background: #f8fafc;
+  border-left: 5px solid #a855f7;
+  border-radius: 0 16px 16px 0;
+  padding: 1.5rem 2rem;
+}
+
+.educationalInfo h3 {
+  margin-top: 0;
+  color: #1e293b;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.educationalInfo ul {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0 0 0;
+}
+
+.educationalInfo li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #334155;
+}

@@ -1,0 +1,337 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1e293b;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.header h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0.5rem 0;
+  letter-spacing: -0.025em;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* 컨트롤 패널 */
+.controlPanel {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.toggleLabel {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.onText {
+  color: #10b981;
+}
+
+.offText {
+  color: #ef4444;
+}
+
+.instruction {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 토글 스위치 디자인 */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e1;
+  transition: .3s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.switch input:checked + .slider {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px #10b981;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* 검색 섹션 */
+.searchSection {
+  margin-bottom: 2rem;
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1.1rem 1.5rem;
+  font-size: 1.1rem;
+  font-family: inherit;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  outline: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.searchInput:focus {
+  border-color: #10b981;
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.1);
+}
+
+/* 스피너 */
+.spinner {
+  position: absolute;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-size: 0.85rem;
+  color: #059669;
+  font-weight: 600;
+  border: 1px solid #a7f3d0;
+  animation: fadeIn 0.2s ease;
+}
+
+.spinnerCircle {
+  width: 16px;
+  height: 16px;
+  border: 2.5px solid #d1fae5;
+  border-top: 2.5px solid #10b981;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.statusInfo {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-top: 0.75rem;
+  padding-left: 0.25rem;
+}
+
+/* 결과 그리드 */
+.resultsContainer {
+  position: relative;
+  min-height: 250px;
+}
+
+.pendingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 5rem;
+  z-index: 10;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #059669;
+  font-size: 1.05rem;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  transition: opacity 0.3s ease;
+}
+
+.loadingGrid {
+  opacity: 0.65;
+}
+
+.productCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.25rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+}
+
+.productCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.04);
+  border-color: #cbd5e1;
+}
+
+.prodCat {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: #059669;
+  background: #d1fae5;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+
+.productCard h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.prodMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  border-top: 1px dashed #f1f5f9;
+  padding-top: 0.75rem;
+}
+
+.prodPrice {
+  font-weight: 800;
+  color: #0f172a;
+  font-size: 0.95rem;
+}
+
+.prodSerial {
+  color: #94a3b8;
+  font-family: monospace;
+}
+
+.moreBanner {
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-top: 1.5rem;
+}
+
+.noResults {
+  text-align: center;
+  color: #64748b;
+  padding: 5rem 0;
+  font-size: 1.05rem;
+}
+
+.educationalInfo {
+  margin-top: 3.5rem;
+  background: #f8fafc;
+  border-left: 5px solid #10b981;
+  border-radius: 0 16px 16px 0;
+  padding: 1.5rem 2rem;
+}
+
+.educationalInfo h3 {
+  margin-top: 0;
+  color: #1e293b;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.educationalInfo ul {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0 0 0;
+}
+
+.educationalInfo li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
