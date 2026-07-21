@@ -1,0 +1,15 @@
+.line {
+  list-style-position: inside;
+  padding: 5px;
+  margin-bottom: 7px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 80%;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+}
+.line:nth-of-type(even) {
+  background-color: rgb(220, 252, 241);
+}
+.line:hover {
+  transform: scale(1.01);
+}
